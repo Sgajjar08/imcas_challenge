@@ -1,0 +1,23 @@
+<div class="container-table100">
+    <table class="table-striped">
+        <tr>
+            <th> Feedback by</th>
+            <th> Language Code</th>
+            <th> Read </th>
+        </tr>
+        <tr *ngFor="let feedback of feedbacks">
+            <td>{{feedback.user.fullname}}</td>
+            <td>
+                <p>{{feedback.translations[0].locale}}</p>
+            </td>
+            <td><button (click)="goToProfile(feedback)"> Read Feedback </button></td>
+        </tr>
+    </table>
+    <div class="pagination">
+        <button [class.prev_button_first]="current_page_number == 1" (click)="goToPrevPage()"> Prev </button>
+        <button *ngIf="current_page_number != 1" (click)="goToFirstPage()"> {{first_page}} </button>
+        <button> {{current_page_number}}</button>
+        <button *ngIf="current_page_number != last_page" (click)="goToLastPage()"> {{last_page}} </button>
+        <button [class.prev_button_first]="current_page_number == last_page" (click)="goToNextPage()"> Next </button>
+    </div>
+</div>

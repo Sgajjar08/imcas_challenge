@@ -1,0 +1,16 @@
+<div class="container" *ngIf="feedback && user">
+    <div class="row profile">
+        <div class="col col-xs-12 col-md-3 col-sm-3 col-xl-3">
+            <div class="profile-picture" [ngStyle]="{'background-image': 'url(' + user.picture_url + ')'}">
+            </div>
+        </div>
+        <div class="col col-xs-12 col-md-9 col-sm-9 col-xl-9">
+            <div class="profile-detail">
+                <p><strong>{{user.fullname}}</strong> - {{user.specialty.translations[0].name}}, {{user.country.translations[0].name}}</p>
+            </div>
+            <div class="col feedback-part">
+                <p>"{{feedback}}"</p>
+            </div>
+        </div>
+    </div>
+</div>
